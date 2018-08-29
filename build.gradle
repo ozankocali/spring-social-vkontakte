@@ -99,6 +99,8 @@ configure(subprojects - docProjects) { subproject ->
 }
 
 project('spring-social-vkontakte') {
+    //FIXME: versions are hardcoded in gradle.properties file :(
+
     description = 'VKontakte API'
     dependencies {
       compile ("org.springframework.social:spring-social-core:$springSocialVersion")
@@ -106,6 +108,8 @@ project('spring-social-vkontakte') {
       compile ("org.springframework.social:spring-social-security:$springSocialVersion", optional)
       compile ("com.vk.api:sdk:$vkSdkVersion")
       compile ("javax.servlet:javax.servlet-api:$servletApiVersion", provided)
+      compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+//      optional ("org.springframework.boot:spring-boot-configuration-processor")
       testCompile ("org.springframework:spring-test:$springVersion")
       testCompile ("org.springframework.security:spring-security-crypto:$springSecurityVersion")
       testCompile ("org.apache.httpcomponents:httpclient:4.5.2", optional)
